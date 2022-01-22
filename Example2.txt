@@ -1,0 +1,74 @@
+def Func (a, m, n)
+    k = 0
+    while k < m
+        i = 0
+        while i < n
+            j = i + 1
+            while j < n
+               case a[j]
+                   when 0
+                       if (i % 2 == 0)
+                           a[j] = 1
+                       end
+                   when 1
+                       temp = 0
+                       while temp < 10
+                           a[j] += k
+                           temp += 1
+                       end
+                   when 2
+                       temp = 0
+                       while temp < 5
+                           if (temp % 2 == 0)
+                               a[j] += temp
+                           end
+                           temp += 1
+                       end
+               end
+                j += 1
+            end
+            i += 1
+        end
+        k += 1
+    end
+end
+
+def mergesort(array)
+  def merge(left_sorted, right_sorted)
+    res = []
+    l = 0
+    r = 0
+
+    loop do
+      break if r >= right_sorted.length and l >= left_sorted.length end
+
+      if r >= right_sorted.length or (l < left_sorted.length and left_sorted[l] < right_sorted[r])
+        res << left_sorted[l]
+        l += 1
+      else
+        res << right_sorted[r]
+        r += 1
+      end
+    end
+
+    return res
+  end
+
+  def mergesort_iter(array_sliced)
+    return array_sliced if array_sliced.length <= 1 end
+
+    mid = array_sliced.length / 2 - 1
+    left_sorted = mergesort_iter(array_sliced[mid])
+    right_sorted = mergesort_iter(array_sliced[mid + 1])
+    return merge(left_sorted, right_sorted)
+  end
+
+  mergesort_iter(array)
+end
+
+arr = [5, 20, 3, 11, 1, 17, 3, 12, 8, 10]
+m = 10
+n = 5
+
+Func(arr, m, n)
+mergesort(arr)

@@ -1,0 +1,40 @@
+def Func (a, m, n)
+    k = 0
+    while k < m
+        i = 0
+        while i < n
+            j = i + 1
+            while j < n
+               case a[j]
+                   when 0
+                       if (i % 2 == 0)
+                           a[j] = 1
+                       end
+                   when 1
+                       temp = 0
+                       while temp < 10
+                           a[j] += k
+                           temp += 1
+                       end
+                   when 2
+                       temp = 0
+                       while temp < 5
+                           if (temp % 2 == 0)
+                               a[j] += temp
+                           end
+                           temp += 1
+                       end
+               end
+                j += 1
+            end
+            i += 1
+        end
+        k += 1
+    end
+end
+
+arr = [5, 20, 3, 11, 1, 17, 3, 12, 8, 10]
+m = 10
+n = 5
+
+Func(arr, m, n)
